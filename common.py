@@ -101,5 +101,6 @@ def embed_texts(texts, model, batch_size=50):
                 time.sleep(wait)
         else:
             raise RuntimeError("Embedding failed too many times.")
-        time.sleep(1.5)
+        if len(texts) > batch_size:
+            time.sleep(1.5)
     return vectors
